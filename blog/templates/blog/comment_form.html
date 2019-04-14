@@ -1,0 +1,238 @@
+{% extends "blog/base.html" %}
+{% block content %}
+  <form class="post-form" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <br>
+    <br>
+    <button type="submit" class="save btn btn-default">Post Comment</button>
+  </form>
+  <script>
+  	var HighlighterButton = MediumEditor.Extension.extend({
+  name: 'highlighter',
+
+  init: function () {
+    this.button = this.document.createElement('button');
+    this.button.classList.add('medium-editor-action');
+    this.button.innerHTML = '<i class="large material-icons">add_a_photo</i>';
+    this.button.title = 'Photo';
+    this.button.style.background = '#3477e2';
+  },
+
+  getButton: function () {
+    return this.button;
+  }
+});
+
+
+  var CancelButton = MediumEditor.Extension.extend({
+  name: 'a',
+init: function () {
+    this.button = this.document.createElement('button');
+    this.button.classList.add('medium-editor-action');
+    this.button.innerHTML = '<i class="large material-icons">cancel</i>';
+    this.button.title = 'Cancel';
+    this.button.style.background = '#7e118e';
+    this.button.borderRadius = '25px';
+  },
+
+  getButton: function () {
+    return this.button;
+  }
+});
+
+
+
+   var VideoButton = MediumEditor.Extension.extend({
+  name: 'b',
+
+  init: function () {
+    this.button = this.document.createElement('button');
+    this.button.classList.add('medium-editor-action');
+    this.button.innerHTML = '<i class="large material-icons">ondemand_video</i>';
+    this.button.title = 'Video';
+    this.button.style.background = '#3477e2';
+  },
+
+  getButton: function () {
+    return this.button;
+  }
+});
+
+
+    var DiscussionButton = MediumEditor.Extension.extend({
+  name: 'c',
+
+  init: function () {
+    this.button = this.document.createElement('button');
+    this.button.classList.add('medium-editor-action');
+    this.button.innerHTML = '<i class="large material-icons">chat</i>';
+    this.button.title = 'Discussion';
+    this.button.style.background = '#3477e2';
+  },
+
+  getButton: function () {
+    return this.button;
+  }
+});
+
+
+  var TableButton = MediumEditor.Extension.extend({
+  name: 'd',
+
+  init: function () {
+    this.button = this.document.createElement('button');
+    this.button.classList.add('medium-editor-action');
+    this.button.innerHTML = '<i class="large material-icons">grid_on</i>';
+    this.button.title = 'Table';
+    this.button.style.background = '#3477e2';
+  },
+
+  getButton: function () {
+    return this.button;
+  }
+});
+
+
+  var QuestionButton = MediumEditor.Extension.extend({
+  name: 'e',
+
+  init: function () {
+    this.button = this.document.createElement('button');
+    this.button.classList.add('medium-editor-action');
+    this.button.innerHTML = '<i class="large material-icons">question_answer</i>';
+    this.button.title = 'Question';
+    this.button.style.background = '#3477e2';
+  },
+
+  getButton: function () {
+    return this.button;
+  }
+});
+
+
+
+    var MathButton = MediumEditor.Extension.extend({
+  name: 'f',
+
+  init: function () {
+    this.button = this.document.createElement('button');
+    this.button.classList.add('medium-editor-action');
+    this.button.innerHTML = '<i class="large material-icons">book</i>';
+    this.button.title = 'Math';
+    this.button.style.background  = '#3477e2';
+  },
+
+  getButton: function () {
+    return this.button;
+  }
+});
+
+
+
+      var SoundButton = MediumEditor.Extension.extend({
+  name: 'g',
+
+  init: function () {
+    this.button = this.document.createElement('button');
+    this.button.classList.add('medium-editor-action');
+    this.button.innerHTML = '<i class="large material-icons">volume_up</i>';
+    this.button.title = 'Sound';
+    this.button.style.background = '#3477e2';
+  },
+
+  getButton: function () {
+    return this.button;
+  }
+});
+
+
+    var MapButton = MediumEditor.Extension.extend({
+  name: 'h',
+
+  init: function () {
+    this.button = this.document.createElement('button');
+    this.button.classList.add('medium-editor-action');
+    this.button.innerHTML = '<i class="large material-icons">map</i>';
+    this.button.title = 'Map';
+    this.button.style.background = '#3477e2';
+  },
+
+  getButton: function () {
+    return this.button;
+  }
+});
+
+
+    var ImportButton = MediumEditor.Extension.extend({
+  name: 'i',
+
+  init: function () {
+    this.button = this.document.createElement('button');
+    this.button.classList.add('medium-editor-action');
+    this.button.innerHTML = '<i class="large material-icons">import_export</i>';
+    this.button.id = 'import';
+   	this.button.style.background = '#3477e2';
+  },
+
+  getButton: function () {
+    return this.button;
+  }
+});
+
+
+      var MoreButton = MediumEditor.Extension.extend({
+  name: 'j',
+
+  init: function () {
+    this.button = this.document.createElement('button');
+    this.button.classList.add('medium-editor-action');
+    this.button.innerHTML = '<i class="large material-icons">more_horiz</i>';
+    this.button.title = 'More';
+    this.button.style.background = '#3477e2';
+  },
+
+  getButton: function () {
+    return this.button;
+  }
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Code for initializing MediumEditor
+var editor = new MediumEditor('.editable', {
+  toolbar: {
+    buttons: ['a','highlighter','b','c','d','e','f','g','h','i','j','bold', 'quote', 'underline', 'anchor']
+  },
+  buttonLabels: 'fontawesome', // use font-awesome icons for other buttons
+  extensions: {
+    'highlighter': new HighlighterButton(),
+    'a': new CancelButton(),
+    'b': new VideoButton(),
+    'c': new DiscussionButton(),
+    'd': new QuestionButton(),
+    'e': new TableButton(),
+    'f': new MathButton(),
+    'g': new SoundButton(),
+    'h': new MapButton(),
+    'i': new ImportButton(),
+    'j': new MoreButton(),
+
+
+  }
+});
+  </script>
+{% endblock %}
